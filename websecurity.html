@@ -3,10 +3,10 @@
 <head>
 
 <!--
-      Case Project 3
+      Chapter 10
 
       Author: Hayley Vrana
-      Date:  September 6, 2018
+      Date:  November 8, 2018
 
       Filename: websecurity.html
    -->
@@ -46,6 +46,7 @@
 	
 			<a href="index.html" title="Home"><img class="websecurity" 
 			src="http://www.public.asu.edu/~hvrana/GIT417/websecurity.jpg" alt="web security picture"/></a>
+			
 	<br><br>
 	
 	<h1>Web Security 
@@ -68,7 +69,7 @@
 		
 	 
 		<!--the links to safe web browsing sites-->
-		<h1>Articles on Safely Using the Web</h1><br><br>
+		<br><br><h1 id="title">Articles on Safely Using the Web</h1><br><br>
 		 
          <a href="https://www.wired.com/story/google-safe-browsing-oral-history/" target="_blank" id="website"> How Google's Safe Browsing Helped Build a More Secure Web</a>
          	<p>A small team in Google started a project aimed at flagging possible scams which helps its user's computers stay safe. In this article they give tips on how to safely work the internet</p>
@@ -77,13 +78,41 @@
          <a href="https://thebestvpn.com/safe-internet-browsing/" target="_blank" id="website">17 Safe Internet Browsing Tips</a>
          	<p>The Best VPN gave 17 tips on how to browse the web safely. One tip is don't use unsecured wifi.</p>
 		
-<br><br><br><br><br><br><br><br><br><br>
+<br>
 		
 		
+<!--I liked making this geolocation. Since we couldn't use the Google API
+ which looked a little more confusing to me. I found this to be a little easier 
+ because I'm getting better at making IF, Else Statements with buttons-->		
+<h1 id="title">Geolocation </h1>
+<p>Click the button to find out your location in Longitude and Latitude</p>
+
+
+
+<button onclick="getLocation()">Location</button>
+
+<p id="location"></p>
+
+<script>
+var x = document.getElementById("location");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        // if the geolocation is available and accepts
+    } else { 
+        x.innerHTML = "Geolocation doesn't work with your browser.";
+    }
+    // your browser doesn't accept this geolocation
+}
+
+function showPosition(position) {
+    x.innerHTML = "<br>Longitude: " + position.coords.longitude + "<br><br>Latitude: " + position.coords.latitude;
+     // code for longitude and latitude
+}
+</script><br><br><br><br><br><br><br><br><br>
 		
-		
-		
-	
+<!--You might have to scroll down to see the location-->	
 			
 		<footer><br>Copyright &copy; 2018 Exploring with Hayley<br>
 			This Site is for Educational Purposes Only <a href="mailto:hvrana@asu.edu">hvrana@asu.edu</a>
@@ -101,5 +130,8 @@
           document.getElementsByTagName("h2")[6].innerHTML = "Color Depth: " + screen.colorDepth;
           document.getElementsByTagName("h1")[7].innerHTML = "Pixel Depth: " + screen.pixelDepth;
       </script>
+      
+      
+
 </body>
 </html>
