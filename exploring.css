@@ -191,6 +191,9 @@ font-family: "Times New Roman", Times, serif;
     color: #696969;
     font-size:25px;
 }
+#title {
+	text-align:left;
+}
 
 /* footer*/
 
