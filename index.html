@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!--
+      Case Project 3
+
+      Author: Hayley Vrana
+      Date:  October 31, 2018
+
+      Filename: index.html
+   -->
+		<title>Exploring with Hayley | Home</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, intial-scale=1.0">
+		<link rel="stylesheet" href="exploring.css">
+		<!--font-->
+		<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+		<!-- modernizr for HTML, CSS, and JavaScript-->
+		<script src="modernizr.custom.05819.js"></script>
+			
+		
+</head>
+
+
+
+<body>
+		<header> <br>
+			<a href="index.html" title="Home"><img class="logo" 
+			src="http://www.public.asu.edu/~hvrana/git417/compass.jpg" alt="logo"/></a>
+			<p class="explore"> Exploring with Hayley</p> 
+			
+		</header>
+		
+		 <nav>
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="about.html">ABOUT</a></li> 
+				<li><a href="travelblog.html">TRAVEL BLOG</a></li>
+				<li><a href="photos.html">PHOTOS</a></li>
+				<li><a href="websecurity.html">WEB SECURITY</a></li>
+			</ul>
+		</nav>
+		
+<!--I want to make this a slideshow-->
+	<div class="slideshow">
+			<a href="index.html" title="Home"><img class="slideshow" 
+			src="http://www.public.asu.edu/~hvrana/git417/IMG_1342.JPG" alt="slideshow"/></a>
+	</div><br><br>
+	
+	<h1>Welcome to My Adventures!
+	</h1>
+		<p>
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+		nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
+		qui officia deserunt mollit anim id est laborum."
+		</p><br><br><br><br>
+		
+<div>	
+<h1>Which Country Should I Explore Next?</h1>	
+<h2>France | Germany | Ireland | United Kingdom | Italy</h2>
+	<input id="myInput" type="text" value="Countries">
+<button onclick="checkcountry()">Submit Your Choice</button>
+<p id="demo"></p>
+
+<script>
+function checkcountry() {
+  var text;
+  var countries = document.getElementById("myInput").value;
+
+  switch(countries) {
+  
+  	case "France":
+      text = "Oui oui, can't wait to visit the Eiffel Tower.";
+      break;
+    case "Germany":
+      text = "Ja, totally gonna visit the Neuschwanstein Castle.";
+      break;
+    case "Ireland":
+      text = "Let's go have some craic at the Guinness Storehouse tour.";
+      break;
+    case "United Kingdom":
+      text = "Cheerio, gonna go see Big Ben.";
+      break;
+    case "Italy":
+      text = "Si, the Colosseum here I come?";
+      break;
+    default:
+      text = "That would be an interesting Country to visit, Thanks for the idea.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+</div>
+<br><br><br><br><br><br><br>		
+  
+ <!--Got help with adding the two different calendars to add in leap days-->
+
+ <script>
+
+function btndo()
+{
+   var quadbit="obal.n";
+   var fstbit="o:tar";
+   var bit3="sbcgl";
+   var pentabit="et";
+   var bit2nd="chon";
+   window.location="mailt"+fstbit+bit2nd+"@"+bit3+quadbit+pentabit
+}
+
+function checkNumber(input, min, max, msg)
+{
+    msg = msg + " field has invalid data: " + input.value;
+
+    var str = input.value;
+    for (var i = 0; i < str.length; i++) {
+        var ch = str.substring(i, i + 1)
+        if ((ch < "0" || "9" < ch) && ch != '.') {
+            alert(msg);
+	    return false;
+        }
+    }
+    var num = 0 + str;
+    if (num < min || max < num) {
+        alert(msg + " not in range [" + min + ".." + max + "]");
+        return false;
+    }
+    input.value = str;
+    return true;
+}
+
+function getMonthLength(month,year,julianFlag)
+{
+   var ml;
+   if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10||month==12)
+      {ml = 31;}
+   else {
+       if(month==2) {
+          ml = 28;
+          if(!(year%4) && (julianFlag==1 || year%100 || !(year%400)))
+             ml++;
+       }
+       else
+          {ml = 30;}
+   }
+   return ml;    
+}
+
+function useCurrentDate(form)
+{
+   Today=new Date();
+   form.yd.value=Today.getYear()+1900;
+   form.md.selectedIndex=Today.getMonth();
+   form.dd.value=Today.getDate();
+
+   return;
+}
+
+function computeForm(form)
+{
+//   var ml={31,28,31,30,31,30,31,31,30,31,30,31};
+
+   MNames=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep",
+      "Oct","Nov","Dec");
+
+   if( (form.yd.value == null || form.yd.value.length == 0) ||
+       (form.dd.value == null || form.dd.value.length == 0) ||
+       (form.yb.value == null || form.yb.value.length == 0) ||
+       (form.db.value == null || form.db.value.length == 0))
+   {
+      return;
+   }
+
+   var yd = form.yd.value;
+   var md = form.md.options[form.md.selectedIndex].value;
+   var dd = form.dd.value;
+
+   var yb = form.yb.value;
+   var mb = form.mb.options[form.mb.selectedIndex].value;
+   var db = form.db.value;
+   // Month length 0->use calendar length
+   var mLength =parseInt(
+      form.monthLength.options[form.monthLength.selectedIndex].value);
+   // 0 if Gregorian, 1 is Julian
+   var isJulian =
+      form.isJulian.options[form.isJulian.selectedIndex].value;
+
+   if( !checkNumber(form.dd,1, getMonthLength(md,yd,isJulian),"Day of death") ||
+       !checkNumber(form.db,1, getMonthLength(mb,yb,isJulian), "Day of birth"))
+   {
+      return;
+   }
+
+   var ma=0;
+   var ya=0;
+
+   var da = dd-db;
+   // Day borrow.
+   if(da<0)
+   {
+      md--;
+      // Borrow months from the year.
+      if(md<1)
+      {
+	 yd--;
+	 // Determine number of months in year
+	 if(mLength)
+	    {md=md+parseInt(365/mLength);}
+	 else
+	    {md=md+12;}
+      }
+      if(mLength==0) // Use real month length if no fixed
+      
+      {             
+       // length is indicated leap year is there if it is leap year
+         ml=getMonthLength(md,yd,isJulian);
+	 da=da+ml;
+      } 
+  
+      else
+	 {da+=mLength;} 
+   }
+
+   ma = md - mb;
+   // borrowing months from years.
+   if(ma<0)
+   {
+      yd--;
+      if(mLength!=0)
+	 {ma=ma+parseInt(365/mLength);}
+      else
+	 {ma=ma+12;}
+   }
+
+   ya = yd - yb;
+
+   form.da.value = da;
+
+   form.ma.value = ma;
+
+   form.ya.value = ya;
+}
+
+
+
+
+
+</SCRIPT>
+
+  <p>Choose which Calendar to Use</p>
+  <FORM METHOD="POST">
+<p>Calendar: <select name="isJulian" size=1>
+  
+<option value="0">Gregorian
+<option value="1">Julian
+</select>
+<p>Month Length: <select name="monthLength" size=1>
+<option value="0">Calendar months
+<option value="30">30-day
+</select>
+<p>Calculate Age</p>
+<TABLE >
+<TR><TH></TH><TH>Year</TH><TH>Month</TH><TH>Day</TH></TR>
+<TR>
+<TD>Date:</TD>
+<TD><INPUT TYPE="text" NAME="yd" SIZE=4  /></TD>
+<TD><SELECT NAME="md" SIZE=4 >
+<OPTION VALUE="1">January
+<OPTION VALUE="2">February
+<OPTION value="3">March
+<OPTION VALUE="4">April
+<OPTION VALUE="5">May
+<OPTION VALUE="6">June
+<OPTION VALUE="7">July
+<OPTION VALUE="8">August
+<OPTION VALUE="9">September
+<OPTION VALUE="10">October
+<OPTION VALUE="11">November
+<OPTION VALUE="12">December
+</SELECT></TD>
+<TD><INPUT TYPE="text" NAME="dd" SIZE=2 /></TD>
+<TD><INPUT TYPE="button"
+VALUE="Use Current Date" onClick=useCurrentDate(this.form)/></td>
+</TR>
+<TR><TH></TH><TH>Year</TH><TH>Month</TH><TH>Day</TH></TR>
+<TR>
+<TD>Birthdate:</TD>
+<TD><INPUT TYPE="text" NAME="yb" SIZE=4  /></TD>
+<TD><SELECT NAME="mb" SIZE=4 >
+<OPTION VALUE="1">January
+<OPTION VALUE="2">February
+<OPTION value="3">March
+<OPTION VALUE="4">April
+<OPTION VALUE="5">May
+<OPTION VALUE="6">June
+<OPTION VALUE="7">July
+<OPTION VALUE="8">August
+<OPTION VALUE="9">September
+<OPTION VALUE="10">October
+<OPTION VALUE="11">November
+<OPTION VALUE="12">December
+</SELECT></TD>
+<TD><INPUT TYPE="text" NAME="db" SIZE=2  /></TD>
+</TR>
+
+<tr><td><hr></td><td><HR></td><td><HR></td><td><hr></td></tr>
+<TR>
+<TD>Age:</TD>
+<TD><INPUT TYPE="text" NAME="ya" SIZE=4  /> years</TD>
+<TD><INPUT TYPE="text" NAME="ma" SIZE=3  /> months</TD>
+<TD><INPUT TYPE="text" NAME="da" SIZE=2 />days</TD> 
+</TR>
+
+</TABLE>
+
+
+<p>To perform your calculation, click on this button: <INPUT TYPE="button"
+VALUE="Submit"  onClick=computeForm(this.form)>. <P>
+  <p><INPUT TYPE="RESET" VALUE="CLEAR"></p><br><br><br>
+</form>
+
+
+		
+	
+			
+		<footer><br>Copyright &copy; 2018 Exploring with Hayley<br>
+			This Site is for Educational Purposes Only <a href="mailto:hvrana@asu.edu">hvrana@asu.edu</a>
+		</footer>
+</body>
+</html>
